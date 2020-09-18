@@ -20,13 +20,16 @@ function App() {
         </a>
         <div>
           <form>
-          <label>
-            email:
-            <input type="email" name="email" required="true" />
-            password
+            <h2>
+            Please Log In
+            </h2>
+            <label>
+              email:
+              <input type="email" name="email" required="true" />
+              password
             <input type="password" name="password" required="true" minlength="5" maxlength="15"/>
-          </label>
-          <input type="submit" value="submit" />
+            </label>
+          <button type="submit" >Submit</ button>
         </form>
         </div>
       </header>
