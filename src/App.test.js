@@ -1,15 +1,3 @@
-// import React from 'react';
-// import { render } from '@testing-library/react';
-// import App from './App';
-
-// test('renders learn react link', () => {
-//   const { getByText } = render(<App />);
-//   const linkElement = getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
-
-
-
 import React from 'react'
 import Adapter from 'enzyme-adapter-react-16'
 import { configure, shallow } from 'enzyme'
@@ -30,6 +18,15 @@ describe('Login form', () => {
   it('should show one button', () => {
     const button = wrapper.find('button')
     expect(button.length).toBe(1)
+  })
+})
+
+describe('Submit button', () => {
+  it('should submit the form', () => {
+    const mockLoginFn = jest.fn()
+    const mountedLoginPage = shallow(<form onClick={mockLoginFn} />)
+    mountedLoginPage.find('form').simulate('submit')
+    expect(mockLoginFn).toHaveBeenCalled()
   })
 })
 
