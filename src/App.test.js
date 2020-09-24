@@ -21,6 +21,15 @@ describe('Login form', () => {
   })
 })
 
+describe('Submit button', () => {
+  it('should submit the form', () => {
+    const mockLoginFn = jest.fn()
+    const mountedLoginPage = shallow(<form onClick={mockLoginFn} />)
+    mountedLoginPage.find('form').simulate('submit')
+    expect(mockLoginFn).toHaveBeenCalled()
+  })
+})
+
 
 
 
