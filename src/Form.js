@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 
 function Form() {
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, errors } = useForm()
 
   const onSubmit = (data) => {
     console.log(data)
@@ -15,16 +15,24 @@ function Form() {
       </h1>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input type='text' placeholder='jondoe@gmail.com' name='email' ref={register} />
+          <input 
+            type='text' 
+            name='email' 
+            placeholder='name@email.com'
+            ref={register({ required: 'email required' })} 
+            />
+          {errors.email && <p>email required</p>}
           <div>
-            <input type='password' name='password' ref={register} />
-            <a href='/' >forgot password?</a>
+            <input 
+              type='password'
+              name='password' 
+              placeholder='password'
+              ref={register({ required:'password required', minLength: {value: 8, message: 'password too short'} })} 
+              />
+            {errors.password && <p>{errors.password.message}</p>}
           </div>
           <input type='submit' />
         </form>
-        <div>
-          <a href='/' >New here? Create an account</a>
-        </div>
       </div>
     </div>
   );
