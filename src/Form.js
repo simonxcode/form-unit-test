@@ -19,15 +19,15 @@ function Form() {
             type='text' 
             name='email' 
             placeholder='name@email.com'
-            ref={register({ required: 'email required' })} 
+            ref={register({ required: 'email required', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'invalid email address'} })} 
             />
-          {errors.email && <p>email required</p>}
+          {errors.email && <p>{errors.email.message}</p>}
           <div>
             <input 
               type='password'
               name='password' 
               placeholder='password'
-              ref={register({ required:'password required', minLength: {value: 8, message: 'password too short'} })} 
+              ref={register({ required: 'password required', pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i, message: 'invalid password'} })} 
               />
             {errors.password && <p>{errors.password.message}</p>}
           </div>
