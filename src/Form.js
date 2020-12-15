@@ -20,7 +20,7 @@ function Form() {
             type='text'
             name='firstName'
             placeholder='first name'
-            ref={register({ required: 'first name required' })}
+            ref={register({ required: 'first name required', maxLength: {value:10, message: 'cannot exceed 10 characters'} })}
           />
           {errors.firstName && <p>{errors.firstName.message}</p>}
         </div>
@@ -29,14 +29,14 @@ function Form() {
             type='text'
             name='lastName'
             placeholder='last name'
-            ref={register({ required: 'last name required' })}
+            ref={register({ required: 'last name required', maxLength: {value:10, message: 'cannot exceed 10 characters' } })} 
           />
           {errors.lastName && <p>{errors.lastName.message}</p>}
         </div>
           <input 
             type='text' 
             name='email' 
-            placeholder='name@email.com'
+            placeholder='email'
             ref={register({ required: 'email required', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'invalid email address'} })} 
             />
           {errors.email && <p>{errors.email.message}</p>}
