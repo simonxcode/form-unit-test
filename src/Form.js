@@ -45,7 +45,13 @@ function Form() {
             type='password'
             name='password' 
             placeholder='password'
-            ref={register({ required: 'password required', pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i, message: 'invalid password'} })} 
+              ref={register({
+                required: 'password required', 
+                pattern: { 
+                  value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i, 
+                  message: 'invalid password: must be at least 8 characters, must have at least 1 UPPERCASE character, must have at least 1 lowercase character, must have at least 1 special character(@$!%*?&)'
+                } 
+              })} 
             />
           {errors.password && <p>{errors.password.message}</p>}
         </div>
