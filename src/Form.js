@@ -2,18 +2,63 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 
 function Form() {
-  const { register, handleSubmit } = useForm()
+  const { register, handleSubmit, errors } = useForm()
 
   const onSubmit = (data) => {
     console.log(data)
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input type='text' placeholder='jondoe@gmail.com' name='email' ref={register} />
-      <input type='password' name='password' ref={register} />
-      <input type='submit' />
-    </form>
+    <div>
+      <h1>
+      Please Sign In
+      </h1>
+      <div>
+        <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <input 
+            type='text'
+            name='firstName'
+            placeholder='first name'
+            ref={register({ required: 'first name required', maxLength: {value:10, message: 'cannot exceed 10 characters'} })}
+          />
+          {errors.firstName && <p>{errors.firstName.message}</p>}
+        </div>
+        <div>
+          <input 
+            type='text'
+            name='lastName'
+            placeholder='last name'
+            ref={register({ required: 'last name required', maxLength: {value:10, message: 'cannot exceed 10 characters' } })} 
+          />
+          {errors.lastName && <p>{errors.lastName.message}</p>}
+        </div>
+          <input 
+            type='text' 
+            name='email' 
+            placeholder='email'
+            ref={register({ required: 'email required', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'invalid email address'} })} 
+            />
+          {errors.email && <p>{errors.email.message}</p>}
+        <div>
+          <input 
+            type='password'
+            name='password' 
+            placeholder='password'
+              ref={register({
+                required: 'password required', 
+                pattern: { 
+                  value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i, 
+                  message: 'invalid password: must be at least 8 characters, must have at least 1 UPPERCASE character, must have at least 1 lowercase character, must have at least 1 special character(@$!%*?&)'
+                } 
+              })} 
+            />
+          {errors.password && <p>{errors.password.message}</p>}
+        </div>
+        <input type='submit' />
+        </form>
+      </div>
+    </div>
   );
 }
 
