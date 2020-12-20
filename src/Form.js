@@ -5,16 +5,33 @@ import styled from 'styled-components'
 const Title = styled.h1`
   color: #fff;
   font-weight: 300;
+  text-align: center;
 `
 
 const Subtitle = styled.h3`
   color: #fff;
   font-weight: 100;
+  text-align: center;
 `
 
 const Input = styled.input`
-  background: ${props => props.submit ? '#98FB98' : '#E0FFFF'}
-  `
+  background: none;
+  border: none;
+  margin: 1rem;
+`
+
+const Validation = styled.p`
+  color: red;
+`
+
+const Submit = styled.input`
+  background: none;
+  border: #fff;
+  color; #fff;
+  width: 100%;
+  border-radius: 1.56rem;
+  margin: 1rem 0;
+`
 
 function Form() {
   const { register, handleSubmit, errors } = useForm()
@@ -36,7 +53,7 @@ function Form() {
               placeholder='username'
               ref={register({ required: 'username required', pattern: { value: /^[a-z][a-z9]{3,14}$/i, message: 'invalid username' } })}
             />
-            {errors.username && <p>{errors.username.message}</p>}
+            {errors.username && <Validation>{errors.username.message}</Validation>}
           </div>
           <div>
             <Input
@@ -45,7 +62,7 @@ function Form() {
               placeholder='email'
               ref={register({ required: 'email required', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i, message: 'invalid email address' } })}
             />
-            {errors.email && <p>{errors.email.message}</p>}
+            {errors.email && <Validation>{errors.email.message}</Validation>}
           </div>
           <div>
             <Input
@@ -54,9 +71,9 @@ function Form() {
               placeholder='password'
               ref={register({ required: 'password required', pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/i, message: 'invalid password' } })}
             />
-            {errors.password && <p>{errors.password.message}</p>}
+            {errors.password && <Validation>{errors.password.message}</Validation>}
           </div>
-          <Input submit type='submit' />
+          <Submit type='submit' />
         </form>
       </div>
       <div>
