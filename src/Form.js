@@ -2,6 +2,15 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
 
+const Title = styled.h1`
+  color: #fff;
+  font-weight: 300;
+`
+
+const Subtitle = styled.h3`
+  color: #fff;
+  font-weight: 100;
+`
 
 const Input = styled.input`
   background: ${props => props.submit ? '#98FB98' : '#E0FFFF'}
@@ -16,8 +25,8 @@ function Form() {
   
   return (
     <div>
-      <h1>New User</h1>
-      <h3>Create your account to join the fun</h3>
+      <Title>New User</Title>
+      <Subtitle>Create your account to join the fun</Subtitle>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
