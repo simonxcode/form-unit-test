@@ -1,12 +1,11 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { Helmet } from 'react-helmet'
 import styled, { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500&display=swap');
-
   body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 `
 
@@ -18,7 +17,7 @@ const Title = styled.h1`
 
 const Subtitle = styled.h3`
   color: #fff;
-  font-weight: 100;
+  font-weight: 200;
   text-align: center;
 `
 
@@ -45,7 +44,7 @@ const Container = styled.div`
   display: flex;
   border-radius: 1rem;
 `
-const Wrapper = styled.div`
+const Overlay = styled.div`
   background-image: linear-gradient(0deg, rgba(170, 255, 169, 1)11.2%, rgba(17, 255, 189, 1)91.1%);
   border-radius: .5rem;
   display: inline-block;
@@ -61,9 +60,14 @@ function Form() {
   }
   
   return (
-    <Container>
-      <GlobalStyle />
-        <Wrapper>
+    <div>
+      <Helmet>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet" />
+      </Helmet>
+      <Container>
+        <GlobalStyle />
+        <Overlay>
           <Title>Hello There</Title>
           <Subtitle>create your new account to join the fun</Subtitle>
           <div>
@@ -118,9 +122,9 @@ function Form() {
               </ul>
             </div>
           </div>
-        </Wrapper>
-    </Container>
- 
+        </Overlay>
+      </Container>
+    </div>
   );
 }
 
