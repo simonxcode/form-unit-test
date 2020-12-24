@@ -8,37 +8,54 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
   }
 `
-
 const Title = styled.h1`
   color: #fff;
-  font-weight: 300;
+  font-size: 2.5rem;
+  font-weight: 500;
   text-align: center;
+  letter-spacing: 0.05rem;
 `
 
 const Subtitle = styled.h3`
   color: #fff;
-  font-weight: 200;
+  font-weight: 100;
   text-align: center;
+  padding: 0 2.5rem;
 `
 
 const Input = styled.input`
+  font-size: 1.3rem;
   background: none;
   border: none;
-  margin: 1rem;
+  border-bottom: 0.078rem solid rgb(255, 255, 255, 0.65);
+  margin: 2.5rem 1rem;
+  ::placeholder {
+    color: #fff;
+    opacity: 1;
+  } 
+  input:focus {
+    border: 0;
+    outline: none;
+  }
 `
 
 const Validation = styled.p`
-  color: red;
+  color: #fff;
+  border: 0;
+  padding: 0;
   margin-left: 1rem;
 `
 
 const Submit = styled.input`
+  font-size: 1.3rem;
   background: none;
   border: #fff;
   color: #fff;
   width: 100%;
   border-radius: 1.56rem;
-  margin: 1rem 0;
+  border: 0.078rem solid #fff;
+  margin: 2.5rem 0;
+  padding: .5rem;
 `
 const Container = styled.div`
   display: flex;
@@ -99,7 +116,7 @@ function Form() {
                 />
                 {errors.password && <Validation>{errors.password.message}</Validation>}
               </div>
-              <Submit type='submit' />
+              <Submit type='submit' value='Create Account' />
             </form>
           </div>
           <div>
