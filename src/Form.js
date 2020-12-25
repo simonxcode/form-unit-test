@@ -14,6 +14,7 @@ const Title = styled.h1`
   font-weight: 500;
   text-align: center;
   letter-spacing: 0.05rem;
+  margin-bottom: 0rem;
 `
 
 const Subtitle = styled.h3`
@@ -28,7 +29,9 @@ const Input = styled.input`
   background: none;
   border: none;
   border-bottom: 0.078rem solid rgb(255, 255, 255, 0.65);
-  margin: 2.5rem 1rem;
+  margin: 2.5rem;
+  width: 75%;
+  display: block;
   ::placeholder {
     color: #fff;
     opacity: 1;
@@ -41,9 +44,8 @@ const Input = styled.input`
 
 const Validation = styled.p`
   color: #fff;
-  border: 0;
-  padding: 0;
-  margin-left: 1rem;
+  font-weight: 100;
+  margin-left: 2.5rem;
 `
 
 const Submit = styled.input`
@@ -51,10 +53,10 @@ const Submit = styled.input`
   background: none;
   border: #fff;
   color: #fff;
-  width: 100%;
+  width: 75%;
   border-radius: 1.56rem;
   border: 0.078rem solid #fff;
-  margin: 2.5rem 0;
+  margin: 2.5rem;
   padding: .5rem;
 `
 const Container = styled.div`
@@ -85,9 +87,8 @@ function Form() {
       <Container>
         <GlobalStyle />
         <Overlay>
-          <Title>Hello There</Title>
-          <Subtitle>create your new account to join the fun</Subtitle>
-          <div>
+          <Title>Almost There!</Title>
+          <Subtitle>Create your new account to join the fun.</Subtitle>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <Input
@@ -96,7 +97,7 @@ function Form() {
                   placeholder='username'
                   ref={register({ required: 'username required', pattern: { value: /^[a-z][a-z9]{3,14}$/i, message: 'invalid username' } })}
                 />
-                {errors.username && <Validation>{errors.username.message}</Validation>}
+                {errors.username && <Validation><em>{errors.username.message}</em></Validation>}
               </div>
               <div>
                 <Input
@@ -105,7 +106,7 @@ function Form() {
                   placeholder='email'
                   ref={register({ required: 'email required', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i, message: 'invalid email address' } })}
                 />
-                {errors.email && <Validation>{errors.email.message}</Validation>}
+                {errors.email && <Validation><em>{errors.email.message}</em></Validation>}
               </div>
               <div>
                 <Input
@@ -114,11 +115,10 @@ function Form() {
                   placeholder='password'
                   ref={register({ required: 'password required', pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/i, message: 'invalid password' } })}
                 />
-                {errors.password && <Validation>{errors.password.message}</Validation>}
+                {errors.password && <Validation><em>{errors.password.message}</em></Validation>}
               </div>
               <Submit type='submit' value='Create Account' />
             </form>
-          </div>
           <div>
             <button>Rules for input</button>
             <div>
