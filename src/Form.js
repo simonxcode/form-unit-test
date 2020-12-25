@@ -6,10 +6,11 @@ import styled, { createGlobalStyle } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
+    color: #00805b;
   }
 `
 const Title = styled.h1`
-  color: #fff;
+  color: #00805b;
   font-size: 2.5rem;
   font-weight: 500;
   text-align: center;
@@ -18,7 +19,7 @@ const Title = styled.h1`
 `
 
 const Subtitle = styled.h3`
-  color: #fff;
+  color: #00805b;
   font-weight: 100;
   text-align: center;
   padding: 0 2.5rem;
@@ -33,7 +34,7 @@ const Input = styled.input`
   width: 75%;
   display: block;
   ::placeholder {
-    color: #fff;
+    color: #00cc92;
     opacity: 1;
   } 
   input:focus {
@@ -43,7 +44,7 @@ const Input = styled.input`
 `
 
 const Validation = styled.p`
-  color: #fff;
+  color: #00805b;
   font-weight: 100;
   margin-left: 2.5rem;
 `
@@ -51,8 +52,7 @@ const Validation = styled.p`
 const Submit = styled.input`
   font-size: 1.3rem;
   background: none;
-  border: #fff;
-  color: #fff;
+  color: #00805b;
   width: 75%;
   border-radius: 1.56rem;
   border: 0.078rem solid #fff;
