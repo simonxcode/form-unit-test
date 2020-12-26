@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Helmet } from 'react-helmet'
 import styled, { createGlobalStyle } from 'styled-components'
+import Accordion from './Accordion'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -121,24 +122,7 @@ function Form() {
               <Submit type='submit' value='Create Account' />
             </form>
           <div>
-            <button>Rules for input</button>
-            <div>
-              <p>username</p>
-              <ul>
-                <li>must be 5 - 15 characters long</li>
-                <li>must start with a letter</li>
-                <li>only alphanumeric characters allowed</li>
-                <li>only lowercase letters allowed</li>
-              </ul>
-              <p>password</p>
-              <ul>
-                <li>must be 8 - 15 characters long</li>
-                <li>must contain one UPPERCASE letter</li>
-                <li>must contain one lowercase letter</li>
-                <li>must contain one number</li>
-                <li>must contain one special character: @$!%*?&</li>
-              </ul>
-            </div>
+            <Accordion />
           </div>
         </Overlay>
       </Container>
