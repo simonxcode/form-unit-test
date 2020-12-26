@@ -26,6 +26,7 @@ const Subtitle = styled.h3`
 `
 
 const Input = styled.input`
+  color: #00805b;
   font-size: 1.3rem;
   background: none;
   border: none;
