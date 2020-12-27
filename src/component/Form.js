@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     color: #00805b;
   }
-`
+` 
 const Title = styled.h1`
   color: #00805b;
   font-size: 2.5rem;
@@ -60,6 +60,7 @@ const Submit = styled.input`
   border: 0.078rem solid #fff;
   margin: 2.5rem;
   padding: .5rem;
+  cursor: pointer;
 `
 const Container = styled.div`
   display: flex;
