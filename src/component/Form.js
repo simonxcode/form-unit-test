@@ -57,10 +57,13 @@ const Submit = styled.input`
   color: #00805b;
   width: 75%;
   border-radius: 1.56rem;
-  border: 0.078rem solid #fff;
+  border: 0.078rem solid #00cc92;
   margin: 2.5rem;
   padding: .5rem;
   cursor: pointer;
+  :hover {
+    background-color: #00cc92;
+  }
 `
 const Container = styled.div`
   display: flex;
