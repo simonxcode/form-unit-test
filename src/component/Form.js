@@ -31,8 +31,8 @@ const Input = styled.input`
   background: none;
   border: none;
   border-bottom: 0.078rem solid #00cc92;
-  margin: 2.5rem;
-  width: 75%;
+  margin: 2.5rem 0;
+  width: 90%;
   display: block;
   ::placeholder {
     color: #00cc92;
@@ -48,7 +48,6 @@ const Validation = styled.p`
   color: #00805b;
   font-weight: 100;
   font-size: .75rem;
-  margin-left: 2.5rem;
 `
 
 const Submit = styled.input`
@@ -66,7 +65,8 @@ const Submit = styled.input`
   }
 `
 const Container = styled.div`
-  display: flex;
+  max-width: 400px;
+  margin: auto;
   border-radius: 1rem;
 `
 const Overlay = styled.div`
