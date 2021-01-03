@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
     color: #00805b;
-  }
+  };
 ` 
 const Title = styled.h1`
   color: #00805b;
@@ -37,11 +37,10 @@ const Input = styled.input`
   ::placeholder {
     color: #00cc92;
     opacity: 1;
-  } 
-  input:focus {
-    border: 0;
+  };
+  :focus {
     outline: none;
-  }
+  };
 `
 
 const Validation = styled.p`
@@ -62,7 +61,11 @@ const Submit = styled.input`
   cursor: pointer;
   :hover {
     background-color: #00cc92;
-  }
+  };
+  :focus {
+    outline: none;
+    background-color: #00cc92;
+  };
 `
 const Container = styled.div`
   max-width: 400px;
