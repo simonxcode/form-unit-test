@@ -2,7 +2,6 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Helmet } from 'react-helmet'
 import styled, { createGlobalStyle } from 'styled-components'
-import Accordion from './Accordion'
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -31,7 +30,7 @@ const Input = styled.input`
   font-size: 1.3rem;
   background: none;
   border: none;
-  border-bottom: 0.078rem solid rgb(255, 255, 255, 0.65);
+  border-bottom: 0.078rem solid #00cc92;
   margin: 2.5rem;
   width: 75%;
   display: block;
@@ -48,6 +47,7 @@ const Input = styled.input`
 const Validation = styled.p`
   color: #00805b;
   font-weight: 100;
+  font-size: .75rem;
   margin-left: 2.5rem;
 `
 
@@ -101,7 +101,15 @@ function Form() {
                   type='text'
                   name='username'
                   placeholder='username'
-                  ref={register({ required: 'username required', pattern: { value: /^[a-z][a-z9]{3,14}$/i, message: 'invalid username' } })}
+                  ref = {
+                    register({
+                      required: 'username required',
+                      pattern: {
+                        value: /^[a-z][a-z9]{3,14}$/i,
+                        message: 'Username: must be 5 - 15 characters, must start with a letter, only alphanumeric characters allowed, only lowercase letters allowed'
+                      }
+                    })
+                  }
                 />
                 {errors.username && <Validation><em>{errors.username.message}</em></Validation>}
               </div>
@@ -110,7 +118,7 @@ function Form() {
                   type='text'
                   name='email'
                   placeholder='email'
-                  ref={register({ required: 'email required', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i, message: 'invalid email address' } })}
+                  ref={register({ required: 'email required', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i, message: 'Username: must be 5 - 15 characters, must start with a letter, only alphanumeric characters allowed, only lowercase letters allowed' } })}
                 />
                 {errors.email && <Validation><em>{errors.email.message}</em></Validation>}
               </div>
@@ -119,15 +127,20 @@ function Form() {
                   type='password'
                   name='password'
                   placeholder='password'
-                  ref={register({ required: 'password required', pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/i, message: 'invalid password' } })}
+                  ref = {
+                    register({
+                      required: 'password required',
+                      pattern: {
+                        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/i,
+                        message: 'Password: must be 8 - 15 characters long, must contain one UPPERCASE letter, must contain one lowercase letter, must contain one number, must contain one special character: @$! % * ? &'
+                      }
+                    })
+                  }
                 />
                 {errors.password && <Validation><em>{errors.password.message}</em></Validation>}
               </div>
               <Submit type='submit' value='Create Account' />
             </form>
-          <div>
-            <Accordion />
-          </div>
         </Overlay>
       </Container>
     </div>
