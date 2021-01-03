@@ -81,10 +81,12 @@ const Overlay = styled.div`
 `
 
 function Form() {
-  const { register, handleSubmit, errors } = useForm()
+  const { register, handleSubmit, errors, reset } = useForm()
 
   const onSubmit = (data) => {
-    console.log(data)   
+    reset()
+    console.log(data) 
+   
   }
   
   return (
