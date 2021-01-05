@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Helmet } from 'react-helmet'
 import styled, { createGlobalStyle } from 'styled-components'
+import 'normalize.css';
 
 const GlobalStyle = createGlobalStyle`
   body {
