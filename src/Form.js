@@ -67,10 +67,12 @@ const Submit = styled.input`
     background-color: #00cc92;
   };
 `
+
 const Container = styled.div`
   max-width: 400px;
   margin: 0 auto;
 `
+
 const Overlay = styled.div`
   background-image: linear-gradient(0deg, rgba(170, 255, 169, 1)11.2%, rgba(17, 255, 189, 1)91.1%);
   border-radius: 0.75rem;
