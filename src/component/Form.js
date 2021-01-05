@@ -61,7 +61,6 @@ const Submit = styled.input`
   cursor: pointer;
   :hover {
     background-color: #00cc92;
-    animation-fill-mode: forwards;
   };
   :focus {
     outline: none;
