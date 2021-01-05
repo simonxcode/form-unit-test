@@ -7,15 +7,14 @@ import 'normalize.css';
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
-    color: #00805b;
   };
 ` 
 const Title = styled.h1`
   color: #00805b;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 500;
   text-align: center;
-  letter-spacing: 0.05rem;
+  letter-spacing: 0.0625rem;
   margin-bottom: 0rem;
 `
 
@@ -23,21 +22,21 @@ const Subtitle = styled.h3`
   color: #00805b;
   font-weight: 100;
   text-align: center;
-  padding: 0 2.5rem;
+  letter-spacing: 0.0625rem;
+  padding: 0 3rem;
 `
 
 const Input = styled.input`
   color: #00805b;
-  font-size: 1.3rem;
+  font-size: 1.125rem;
   background: none;
   border: none;
-  border-bottom: 0.078rem solid #00cc92;
+  border-bottom: 0.0625rem solid #00cc92;
   margin: 2.5rem 0;
   width: 90%;
   display: block;
   ::placeholder {
     color: #00cc92;
-    opacity: 1;
   };
   :focus {
     outline: none;
@@ -56,12 +55,13 @@ const Submit = styled.input`
   color: #00805b;
   width: 75%;
   border-radius: 1.56rem;
-  border: 0.078rem solid #00cc92;
+  border: 0.0625rem solid #00cc92;
   margin: 2.5rem;
   padding: .5rem;
   cursor: pointer;
   :hover {
     background-color: #00cc92;
+    animation-fill-mode: forwards;
   };
   :focus {
     outline: none;
@@ -70,24 +70,21 @@ const Submit = styled.input`
 `
 const Container = styled.div`
   max-width: 400px;
-  margin: auto;
-  border-radius: 1rem;
+  margin: 0 auto;
 `
 const Overlay = styled.div`
   background-image: linear-gradient(0deg, rgba(170, 255, 169, 1)11.2%, rgba(17, 255, 189, 1)91.1%);
-  border-radius: .5rem;
-  display: inline-block;
+  border-radius: 0.75rem;
   padding: 1.5rem;
-  margin: 0 auto;
 `
 
 function Form() {
+  
   const { register, handleSubmit, errors, reset } = useForm()
 
   const onSubmit = (data) => {
     reset()
     console.log(data) 
-   
   }
   
   return (
@@ -100,7 +97,7 @@ function Form() {
         <GlobalStyle />
         <Overlay>
           <Title>Almost There!</Title>
-          <Subtitle>Create your new account to join the fun.</Subtitle>
+          <Subtitle>Create your account to join the fun.</Subtitle>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <Input
@@ -111,8 +108,8 @@ function Form() {
                     register({
                       required: 'username required',
                       pattern: {
-                        value: /^[a-z][a-z9]{3,14}$/i,
-                        message: 'Username: must be 5 - 15 characters, must start with a letter, only alphanumeric characters allowed, only lowercase letters allowed'
+                        value: /^[a-z][a-z0-9]{3,14}$/i,
+                        message: 'Username must start with a letter, must be 5 - 15 characters, only alphanumeric characters allowed, only lowercase letters allowed'
                       }
                     })
                   }
@@ -124,7 +121,7 @@ function Form() {
                   type='text'
                   name='email'
                   placeholder='email'
-                  ref={register({ required: 'email required', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i, message: 'Username: must be 5 - 15 characters, must start with a letter, only alphanumeric characters allowed, only lowercase letters allowed' } })}
+                  ref={register({ required: 'email required', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i, message: 'Please enter a valid email' } })}
                 />
                 {errors.email && <Validation><em>{errors.email.message}</em></Validation>}
               </div>
@@ -138,7 +135,7 @@ function Form() {
                       required: 'password required',
                       pattern: {
                         value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/i,
-                        message: 'Password: must be 8 - 15 characters long, must contain one UPPERCASE letter, must contain one lowercase letter, must contain one number, must contain one special character: @$! % * ? &'
+                        message: 'Password must be 8 - 15 characters long, must contain one UPPERCASE letter, must contain one lowercase letter, must contain one number, must contain one special character: @$! % * ? &'
                       }
                     })
                   }
