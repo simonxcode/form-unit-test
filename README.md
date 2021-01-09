@@ -2,7 +2,7 @@
 > A sign-up form allowing users to create an account. Features includes: 
 - hooks for reusable stateful logic  
 - client-side validations       
-- minimal rendering with uncontrolled form  
+- minimal rendering(uncontrolled form)  
 
 ![screen shot](public/images/screenShot.jpg)
 
@@ -27,7 +27,7 @@
 git add .
 git commit -m "changes made with fooBar"
 ```
-3. Push to branch  
+3. Push to origin   
 `git push origin feature/fooBar`
 
 4. Create a new Pull Request 
